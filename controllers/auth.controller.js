@@ -6,8 +6,8 @@ const { createUser } = require("../models/users");
 const { JWT_SECRET } = process.env;
 
 async function register(req, res, next) {
-  const { email, password } = req.body;
-  const user = await createUser(email, password);
+  const { email, password, subscription } = req.body;
+  const user = await createUser(email, password, subscription);
 
   return res.status(201).json({ user });
 }
